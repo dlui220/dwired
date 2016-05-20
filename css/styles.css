@@ -32,6 +32,13 @@ body{
 }
 
 .content-container{
-    background-color: white;
     top: 100px;
+}
+
+.writing{
+  font-family: Avenir-Black;
+}
+
+.dwired-comment{
+  display: none;
 }
