@@ -1,0 +1,26 @@
+{
+  "name": "dwired",
+  "version": "1.0.0",
+  "description": "Website for Ms. Dwire",
+  "main": "App.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlui220/dwired.git"
+  },
+  "keywords": [
+    "Networking"
+  ],
+  "author": "8BitFitBit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlui220/dwired/issues"
+  },
+  "homepage": "https://github.com/dlui220/dwired#readme"
+}
