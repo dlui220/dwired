@@ -8,5 +8,5 @@ https://www.youtube.com/watch?v=lW1vsKMUaKg
 -------
 
 #devlog:
-- 6/16/16 - looked at different frameworks for the website design
-- 6/17/16 - began looking at frameworks for messenging service (ajaxim)
+- 5/16/16 - looked at different frameworks for the website design
+- 5/17/16 - began looking at frameworks for messenging service (ajaxim)
