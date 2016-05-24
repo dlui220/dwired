@@ -6,7 +6,7 @@ html{
 body{
   height: 100vh;
   width: 100vw;
-  background-color: #00AFA1
+  background-color: #00AFA1;
 }
 
 .dwired-blue{
@@ -41,4 +41,9 @@ body{
 
 .dwired-comment{
   display: none;
+}
+
+.dwired-form{
+  width: 600px !important;
+  height: 400px;
 }
