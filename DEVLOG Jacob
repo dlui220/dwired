@@ -1,0 +1,13 @@
+Jacob Hoffman:
+5-22-16
+First, I had no idea what semantic was, what npm was, and I still don't understand the inner workings. 
+However, I got express installed into our project
+I typed while in the dwired directory
+npm init 
+enter a bunch of times.
+npm install express --save
+npm install express.
+After this, I jacked simple express code for a basic server from the interwebs, and realized there was no css or js working.
+
+5-23-16
+luckily, chris fixed that by putting all of the files besides node modules and server.js and package.json in the public folder.
