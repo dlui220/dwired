@@ -1,0 +1,13 @@
+5/18 - 5/19
+- beginning of html/css with semantic
+
+5/20
+- research on nodejs server w/ expressjs 
+- research on AjaxIM for messaging system
+- working on html/css with semantic
+
+5/21 - 5/22
+- writing server file to server static files
+- integrating semantic with nodejs
+- starting research on MongoDB integration with nodejs
+
