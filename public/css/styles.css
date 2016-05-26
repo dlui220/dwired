@@ -47,3 +47,13 @@ body{
   width: 600px !important;
   height: 400px;
 }
+
+.messages-container{
+  background-color: white;
+  width: 50% !important;
+
+}
+
+.comment-padding{
+  margin: 2.5%;
+}
