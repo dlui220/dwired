@@ -11,8 +11,3 @@ After this, I jacked simple express code for a basic server from the interwebs, 
 
 5-23-16
 luckily, chris fixed that by putting all of the files besides node modules and server.js and package.json in the public folder.
-
-5-26-15
-Today, I have been having problems setting up oauth, but am finally making progress.
-first i made a client id on console.developers.google.com, and inputted it in auth.js.
-
