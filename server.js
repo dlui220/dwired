@@ -21,9 +21,9 @@ app.get('/', function(req, res){
 		res.sendFile(__dirname + '/chat.html');
 });
 
-http.listen(8000, function(){
-		console.log('listening on *:8000');
-});
+// http.listen(8000, function(){
+// 		console.log('listening on *:8000');
+// });
 
 io.on('connection', function(socket){
 		socket.on('chat message', function(msg){
