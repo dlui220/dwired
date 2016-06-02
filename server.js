@@ -8,22 +8,22 @@ var url = 'mongodb://localhost:8000/test';
 
 app.use(express.static(__dirname + '/public'));
 
-const PORT=8080;
+//const PORT=8080;
 
-app.listen(process.env.PORT || 8000);
+//app.listen(process.env.PORT || 8000);
 
 //////
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-app.get('/', function(req, res){
+app.get('/chat', function(req, res){
 		res.sendFile(__dirname + '/chat.html');
 });
 
-// http.listen(8000, function(){
-// 		console.log('listening on *:8000');
-// });
+http.listen(8000, function(){
+ 		console.log('listening on *:8000');
+ });
 
 io.on('connection', function(socket){
 		socket.on('chat message', function(msg){
