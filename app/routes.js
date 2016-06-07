@@ -5,6 +5,11 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); //load index.ejs files
     });
     
+    app.get('/login', function(req, res) {
+        res.render('login.ejs'); //load index.ejs files
+    });
+    
+    
     app.get('/dashboard', isLoggedIn, function(req, res) {
         res.render('dashboard.ejs', {
             user : req.user // get the user out of session and pass to template

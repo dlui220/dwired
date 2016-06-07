@@ -13,14 +13,14 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 
-var url = 'mongodb://localhost:8000/test';
+var url = 'mongodb://localhost:27017/test';
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 //connect to database file (which contains db url)
 mongoose.connect(configDB.url);
-
+require('./config/passport')(passport);
 app.use(morgan('dev')); //log every rq to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
