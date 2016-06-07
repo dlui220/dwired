@@ -9,6 +9,12 @@ https://scotch.io/tutorials/easy-node-authentication-google
 
 -------
 
-#devlog:
-- 5/16/16 - looked at different frameworks for the website design
-- 5/17/16 - began looking at frameworks for messenging service (ajaxim)
+#deployment guide:
+1. Have a running Ubuntu and/or Node.js-based D.O. Droplet, with root/sudo users already configured
+2. Clone repositiory: https://github.com/dlui220/dwired.git
+3. Go into the 'dwired' directory and run ```$ npm install```
+4. Make sure all dependencies are installed.
+5. In the same directory, run command ``` $ pm2 start server.js```
+6. (Optional, but recommended) Run command ```$ pm2 startup ubuntu``` to create a start-up script for the app, following succeeding prompts after command is given.
+
+
