@@ -21,6 +21,10 @@ body{
   line-height: 87px;
 }
 
+.dwired-blue-text{
+  color: #00AFA1;
+}
+
 .dwyred-menu-item{
     font-size: 18px;
     color: #00AFA1;
@@ -32,7 +36,8 @@ body{
 }
 
 .content-container{
-    top: 100px;
+    top: 156px;
+    background-color: white;
 }
 
 .writing{
