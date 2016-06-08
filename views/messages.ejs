@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dwyred - Messages</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/semantic/semantic.min.css">
+    <script src="public/semantic/semantic.min.js"></script>
+    <link rel="stylesheet" href="/public/css/styles.css" media="screen" title="no title" charset="utf-8">
+  </head>
+
+  <body class="writing">
+    <!--<div class="ui top fixed borderless menu dwired-blue" style="position: fixed; padding-left: 12.5%; padding-right: 10%">
+      <div class="item">
+        <h1 class="title">Dwyred</h1>
+      </div>
+      <div class="right menu">
+        <a class="item dwyred-menu-item">Home</a>
+        <a class="item dwyred-menu-item">Messages</a>
+        <a class="item dwyred-menu-item">Files</a>
+        <a class="item dwyred-menu-item">Settings</a>
+      </div>
+    </div>-->
+    <!--<div class="ui padded segments messages-container">
+      <div class="ui basic segment">
+          <h1>Rick Melucci</h1>
+      </div>
+    </div>-->
+    <div class="ui one column stackable center aligned page container grid main-container">
+        <div class="column sixteen wide ui segments" style="height: 80%; top: 100px; background-color: white">
+          <h3 class="ui top attached header" style="margin-bottom: 2%;">
+            Defining American Voices Chat
+          </h3>
+          <div class="ui one column stackable grid" style="height: 80%">
+
+            <!-- THIS IS THE MAIN CONTENT CONTAINER -->
+            <div class="column sixteen wide ui basic segment" style="overflow-y: scroll" id="messages">
+              <div class="ui right floated right aligned segment chat-bubble">
+                Rick Melucci
+                <img class="ui avatar right image" src="/public/RickHeadshotCircle.png">
+                  <p>
+                    Celiac banh mi humblebrag gochujang vinyl.
+                  </p>
+              </div>
+
+              <div class="ui right floated segment right aligned chat-bubble">
+                Rick Melucci
+                <img class="ui avatar right image" src="/public/RickHeadshotCircle.png">
+                <p>
+                  Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi.
+                </p>
+              </div>
+
+              <div class="ui left floated segment left aligned chat-bubble">
+                Donald Trump
+                <img class="ui avatar left image" src="http://www.thewrap.com/wp-content/uploads/2015/11/Donald-Trump.jpg">
+                <p>
+                  Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
+                </p>
+              </div>
+
+              <div class="ui right floated segment right aligned chat-bubble">
+                <p>
+                  Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi.
+                </p>
+              </div>
+
+              <div class="ui left floated segment left aligned chat-bubble">
+                <p>
+                  Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
+                </p>
+              </div>
+
+              <div class="ui left floated segment left aligned chat-bubble">
+                <p>
+                  Celiac banh mi humblebrag gochujang vinyl.
+              </div>
+            </div>
+          </div>
+
+	 
+          <div class="ui action input dwired-input">
+            <form action="">
+	      <input type="text" id="m" placeholder="Send message...." autocomplete="off">
+              <button class="ui button">Send</button>
+	    </form>
+          </div>
+        </div>
+      </div>
+  <script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<div class="ui right floated segment right aligned chat-bubble">').text(Date() + " : " + msg));
+  });
+  </script>
+  </body>
+</html>
