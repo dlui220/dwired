@@ -34,7 +34,7 @@
           <div class="ui one column stackable grid" style="height: 80%">
 
             <!-- THIS IS THE MAIN CONTENT CONTAINER -->
-            <div class="column sixteen wide ui basic segment" style="overflow-y: scroll">
+            <div class="column sixteen wide ui basic segment" style="overflow-y: scroll" id="messages">
               <div class="ui right floated right aligned segment chat-bubble">
                 Rick Melucci
                 <img class="ui avatar right image" src="/public/RickHeadshotCircle.png">
@@ -78,12 +78,25 @@
             </div>
           </div>
 
-
+	 
           <div class="ui action input dwired-input">
-            <input type="text" placeholder="Send message....">
-            <button class="ui button">Send</button>
+            <form action="">
+	      <input type="text" id="m" placeholder="Send message...." autocomplete="off">
+              <button class="ui button">Send</button>
+	    </form>
           </div>
         </div>
       </div>
+  <script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<div class="ui right floated segment right aligned chat-bubble">').text(Date() + " : " + msg));
+  });
+  </script>
   </body>
 </html>
