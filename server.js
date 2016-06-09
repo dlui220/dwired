@@ -58,6 +58,15 @@ require('./app/routes.js')(app, passport); // loud routes and pass in app + conf
 app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket){
+
+		// Base code for querying everything in the database
+		// Will use to fetch previous messages
+		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+		// message.find(function (err, messages) {
+		// 		if (err) return console.error(err);
+		// 		console.log(messages);
+		// });
+								 
 		socket.on('chat message', function(msg){
 				if (msg.length > 0) {
 						io.emit('chat message', msg);
@@ -74,13 +83,13 @@ io.on('connection', function(socket){
 								console.log(tmp);
 						});
 						/*var queryMsg = function(){
-						message.find({name : "Bob"}, "name message time", function(err, result){
-								if ( err ) throw err;
-								console.log("Find Operations: " + result);
-						});
-				};*/		
-		};
+						 message.find({name : "Bob"}, "name message time", function(err, result){
+						 if ( err ) throw err;
+						 console.log("Find Operations: " + result);
 						 });
+						 };*/		
+				};
+		});
 });
 
 io.on('connection', function(socket){
