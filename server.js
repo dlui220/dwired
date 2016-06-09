@@ -22,12 +22,30 @@ var io = require('socket.io')(http);
 
 //connect to database file (which contains db url)
 mongoose.connect(configDB.url);
+var db = mongoose.connection;
 require('./config/passport')(passport);
 app.use(morgan('dev')); //log every rq to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
 app.set('view engine', 'ejs'); // set up ejs for templating
+
+//Mongo
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function(){
+		console.log("Connected to DataBase");
+		//do operations which involve interacting with DB.
+});
+//
+
+//Create a schema for a message
+var msgSchema = mongoose.Schema({
+    name: String,
+    message: String,
+    time: Number
+});
+
+var message = mongoose.model('message', msgSchema);
 
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
@@ -42,7 +60,19 @@ app.use(express.static(__dirname + '/public'));
 io.on('connection', function(socket){
 		socket.on('chat message', function(msg){
 				if (msg.length > 0) {
-						io.emit('chat message', msg);	  
+						io.emit('chat message', msg);
+						
+						//Insert into MongoDB database
+						var tmp = new message({
+								name: "Bob",
+								message: msg,
+								time: 10
+						});
+						
+						tmp.save(function(err){
+								if ( err ) throw err;
+								console.log(tmp);
+						});
 				};
 		});
 });
