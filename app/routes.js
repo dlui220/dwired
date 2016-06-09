@@ -9,15 +9,15 @@ module.exports = function(app, passport) {
         res.render('login.ejs'); //load index.ejs files
     });
     
+		app.get('/dashboard', isLoggedIn, function(req, res) {
+				res.render('dashboard.ejs', {
+						user : req.user // get the user out of session and pass to template
+				});
+		});
     
-    app.get('/dashboard', isLoggedIn, function(req, res) {
-        res.render('dashboard.ejs', {
-            user : req.user // get the user out of session and pass to template
-        });
-    });
-    
-    app.get('/chat', isLoggedIn, function(req, res) {
-        res.render('chat.ejs', {
+    //app.get('/chat', isLoggedIn, function(req, res) {
+		app.get('/chat', function(req, res) {
+        res.render('messages.ejs', {
             user : req.user // get the user out of session and pass to template
         });
     });
@@ -33,8 +33,8 @@ module.exports = function(app, passport) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                    successRedirect : '/dashboard',
-                    failureRedirect : '/'
+                successRedirect : '/dashboard',
+                failureRedirect : '/'
             }));
 };
 
