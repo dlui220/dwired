@@ -73,8 +73,14 @@ io.on('connection', function(socket){
 								if ( err ) throw err;
 								console.log(tmp);
 						});
-				};
-		});
+						/*var queryMsg = function(){
+						message.find({name : "Bob"}, "name message time", function(err, result){
+								if ( err ) throw err;
+								console.log("Find Operations: " + result);
+						});
+				};*/		
+		};
+						 });
 });
 
 io.on('connection', function(socket){
@@ -87,5 +93,5 @@ io.on('connection', function(socket){
 ///// launch
 http.listen(8000, function(){
  		console.log('listening on *:8000');
- });
+});
 
