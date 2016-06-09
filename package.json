@@ -4,7 +4,7 @@
   "description": "Website for Ms. Dwire",
   "main": "App.js",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcrypt": "~0.8.6",
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.0.0",
     "connect-flash": "~0.1.1",
