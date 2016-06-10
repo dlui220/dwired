@@ -18,10 +18,11 @@ module.exports = function(app, passport) {
     });
 
     var html_string = "";
+		var pst_string = "";
     // Base code for querying everything in the database
     // Fetches previous messages and formats them into html_string
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
- 
+		
 
     app.get('/', function(req, res) {
 				res.render('index.ejs');
@@ -32,52 +33,69 @@ module.exports = function(app, passport) {
 		});
 
 		app.get('/dashboard', isLoggedIn, function(req, res) {
-				res.render('dash.ejs', {
-						user : req.user // get the user out of session and pass to template
-				});
-		});
-
-		app.get('/chat', isLoggedIn, function(req, res) {
-				message.find(function (err, messages) {
+				posts.find(function (err, psts) {
 						if (err) {
 								return console.error(err);
 						}
-						// console.log(messages);
+						//console.log("start");
+						//console.log(psts);
 						// console.log(messages.length);
-						for (i=0;i<messages.length;i++){
-								if (messages[i]['name'] == "Bob"){ //req.user.username ){ // checks if session matches message
-										html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['message'] + '</p>' + '</div>';
-								} else {
-										html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['message'] + '</p>' + '</div>';
-								}
+						pst_string = "";
+						for (i=0;i<psts.length;i++){
+								pst_string += '<div class="ui left aligned segment"><a class="ui blue ribbon label">Class Post</a><span></span><!--<h3 class="writing">Rick Melucci</h3>--><p class="post">' + psts[i]['post'] + '</p></div><br><br><br>';
+								/*'<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ psts[i]['post'] + '</p>' + '</div>';*/
+								//console.log("hey");
+								//console.log(pst_string);
 						}
 				});
-				res.render('messages.ejs', {
+				res.render('dash.ejs', {
 						user : req.user, // get the user out of session and pass to template
-						m : html_string
-				});
+				p : pst_string
 		});
-
-		app.get('/files', function(req, res) {
-				res.render('files.ejs', {
-						user : req.user // get the user out of session and pass to template
-				});
+});
+		
+app.get('/chat', isLoggedIn, function(req, res) {
+		//html_string = "";
+		message.find(function (err, messages) {
+				if (err) {
+						return console.error(err);
+				}
+				// console.log(messages);
+				// console.log(messages.length);
+				for (i=0;i<messages.length;i++){
+						if (messages[i]['name'] == "Bob"){ //req.user.username ){ // checks if session matches message
+								html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['message'] + '</p>' + '</div>';
+						} else {
+								html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['message'] + '</p>' + '</div>';
+						}
+				}
 		});
-
-		// route for logging out
-		app.get('/logout', function(req, res) {
-				req.logout();
-				res.redirect('/');
+		res.render('messages.ejs', {
+				user : req.user, // get the user out of session and pass to template
+				m : html_string
 		});
+});
 
-		app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+app.get('/files', function(req, res) {
+		res.render('files.ejs', {
+				user : req.user // get the user out of session and pass to template
+		});
+});
 
-		// the callback after google has authenticated the user
-		app.get('/auth/google/callback',
-						passport.authenticate('google', {
-								successRedirect : '/dashboard',
-								failureRedirect : '/'
-						}));
+// route for logging out
+app.get('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+});
+
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+// the callback after google has authenticated the user
+app.get('/auth/google/callback',
+				passport.authenticate('google', {
+						successRedirect : '/dashboard',
+						failureRedirect : '/'
+				}));
 };
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {

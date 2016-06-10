@@ -55,7 +55,7 @@
 					</div>
 				</div>
         <!---The "segments" container holds individual segments-->
-        <div class="ui segments">
+        <div class="ui segments" id="p">
 				</div>
 			</div>
 		 </div>
@@ -63,6 +63,8 @@
 		<script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/app/styles.js"></script>
 		<script>
+			var p = `<%- p %>`;
+			$("#p").html(p);
 			var socket = io();
 			console.log("hello");
 			
@@ -73,7 +75,7 @@
 			  return false;
 			});
 			//var username = '<%= user.google.name %>';
-			socket.on('posts', function(msg){
+			socket.on('posts', function(pst){
 			  console.log("worked?");
 			});
 		</script>
