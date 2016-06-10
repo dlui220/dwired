@@ -102,13 +102,13 @@
 
 
 			$('form').submit(function(){
-			  socket.emit('chat message', $('#m').val());
+			  socket.emit('chat message', '<%= user.google.name %>'  + ' : ' + $('#m').val());
 			  $('#m').val('');
 			  return false;
 			});
-			var username = '<%= user.google.name %>';
+			//var username = '<%= user.google.name %>';
 			socket.on('chat message', function(msg){
-			  $('#messages').append($('<div class="ui right floated segment right aligned chat-bubble">').text(username + " : " + msg));
+			  $('#messages').append($('<div class="ui center floated segment center aligned chat-bubble">').text(msg));
   });
   </script>
   </body>
