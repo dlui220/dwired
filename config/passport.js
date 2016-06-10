@@ -34,6 +34,7 @@ module.exports = function(passport) {
     // =========================================================================
     // GOOGLE ==================================================================
     // =========================================================================
+   
     passport.use(new GoogleStrategy({
 
         clientID        : configAuth.googleAuth.clientID,
@@ -42,6 +43,7 @@ module.exports = function(passport) {
 
     },
     function(token, refreshToken, profile, done) {
+		if(profile._json.email.split("@")[1] == "stuy.edu" || profile._json.email.split("@")[1] == "schools.nyc.edu" ){
 
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
@@ -51,7 +53,6 @@ module.exports = function(passport) {
             User.findOne({ 'google.id' : profile.id }, function(err, user) {
                 if (err)
                     return done(err);
-
                 if (user) {
 
                     // if a user is found, log them in
@@ -75,7 +76,11 @@ module.exports = function(passport) {
                 }
             });
         });
-
+}
+                else{
+        		// fail        
+        		done(new Error("Invalid host domain" + JSON.stringify(profile._json.email.split("@")[1])));
+    		}
     }));
 
 };
