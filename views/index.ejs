@@ -16,65 +16,48 @@
         <h1 class="title">Dwyred</h1>
       </div>
       <div class="right menu">
-        <a href="/index.html" class="item dwyred-menu-item">Home</a>
-        <a href="/chat.html" class="item dwyred-menu-item">Messages</a>
-        <a class="item dwyred-menu-item">Files</a>
-        <a class="item dwyred-menu-item" href="/auth/google">Sign In</a>
+        <a href="/" class="item dwyred-menu-item">Home</a>
+        <a href="/chat" class="item dwyred-menu-item">Messages</a>
+        <a href="/files" class="item dwyred-menu-item">Files</a>
       </div>
     </div>
     <!-------END HEADER --------->
 
-    <!--<div class="main-container ui-grid">
+    <!-- MAIN CONTENT HERE ----->
+    <!---THESE TWO LINES OF CODE MAKE THE INVISIBLE CONTAINER THAT HOLDS EVERYTHING-->
+    <div class="ui one column stackable center aligned page grid main-container" style="padding: 0">
+      <div class="column nine wide content-container segment">
 
-    </div>-->
-
-    <!--<div class="ui right fixed vertical menu" style="top: 264px; right: 15px">
-      <div class="item">
-        <h2>Friends Online</h2>
-      </div>
-      <a class="item">Ms. Dwyer</a>
-      <a class="item">Rick Melucci</a>
-      <a class="item">Justin Pacquing</a>
-      <a class="item">Chris Liang</a>
-      <a class="item">Jacob Hoffman</a>
-      <a class="item">Derrick Lui</a>
-      <a class="item">John Applebee</a>
-      <a class="item">Adam Dab</a>
-      <a class="item">Bob Calculus</a>
-      <a class="item">David Lit</a>
-      <a class="item">Eating pineapples</a>
-      <a class="item">Whowhen What</a>
-      <a class="item">Wait Why</a>
-      <a class="item">Testimonials</a>
-      <a class="item">Sign-in</a>
-      <a class="item"></a>
-      <a class="item">Testimonials</a>
-      <a class="item">Sign-in</a>
-    </div> -->
-
-    <div class="ui one column stackable center aligned page grid main-container">
-      <div class="column ten wide content-container segment">
+        <!---The "segments" container holds individual segments-->
         <div class="ui segments">
-          <div class="ui left aligned very padded segment">
-            <h3 class="writing">Rick Melucci</h3>
-            <p>
+
+          <!--Each of these segments holds one post -->
+          <div class="ui left aligned segment">
+            <a class="ui blue ribbon label">June 9th</a>
+            <span><h3 class="writing post">Rick Melucci</h3></span>
+            <!--<h3 class="writing">Rick Melucci</h3>-->
+            <p class="post">
               Celiac banh mi humblebrag gochujang vinyl. Lo-fi fashion axe raw denim, next level knausgaard single-origin coffee banh mi. Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi. Keffiyeh distillery swag, tattooed bitters chicharrones sustainable pitchfork ethical neutra master cleanse ennui roof party viral. Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
             </p>
-            <div class="meta">
+            <div class="meta post">
               <a class="like" style="margin-right: 5%">
                 <i class="like icon"></i> 4 Likes
               </a>
               <a class="like"><i class="comment icon"></i> 3 Comments</a>
             </div>
           </div>
+          <!--This is the end of the post segment -->
 
-          <!-------- COMMENTS SECTION --------->
-          <div class="ui left aligned very padded segment dwired-comment">
+
+          <!-------- Start of the comments section, not visible until comments is clicked on --------->
+          <div class="ui left aligned segment dwired-comment">
             <div class="ui comments">
+
+              <!--Start of individual comment -->
               <div class="comment">
                 <div class="content">
                   <a class="author">Matt</a>
-                  <div class="metadata">
+                  <div class="meta postdata">
                     <span class="date">Today at 5:42PM</span>
                   </div>
                   <div class="text">
@@ -85,10 +68,13 @@
                   </div>
                 </div>
               </div>
+              <!-- End of individual comment -->
+
+              <!--Start of individual comment -->
               <div class="comment">
                 <div class="content">
                   <a class="author">Elliot Fu</a>
-                  <div class="metadata">
+                  <div class="meta postdata">
                     <span class="date">Yesterday at 12:30AM</span>
                   </div>
                   <div class="text">
@@ -102,7 +88,7 @@
                   <div class="comment">
                     <div class="content">
                       <a class="author">Jenny Hess</a>
-                      <div class="metadata">
+                      <div class="meta postdata">
                         <span class="date">Just now</span>
                       </div>
                       <div class="text">
@@ -115,10 +101,13 @@
                   </div>
                 </div>
               </div>
+              <!-- End of individual comment -->
+
+              <!--Start of individual comment -->
               <div class="comment">
                 <div class="content">
                   <a class="author">Joe Henderson</a>
-                  <div class="metadata">
+                  <div class="meta postdata">
                     <span class="date">5 days ago</span>
                   </div>
                   <div class="text">
@@ -129,6 +118,9 @@
                   </div>
                 </div>
               </div>
+              <!--End of individual comment -->
+
+              <!--Start of comment input -->
               <form class="ui reply form">
                 <div class="field">
                   <textarea></textarea>
@@ -137,41 +129,22 @@
                   <i class="icon edit"></i> Add Reply
                 </div>
               </form>
-            </div>
+              <!--End of comment input -->
 
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="column ten wide content-container segment">
+      <div class="column nine wide content-container segment">
         <div class="ui segments">
-          <div class="ui left aligned very padded segment">
-            <h3 class="writing">Derrick Lui</h3>
-            <p>
+          <div class="ui left aligned segment">
+            <a class="ui blue ribbon label">June 7th</a>
+            <span><h3 class="writing post">Derrick Lui</h3></span>
+            <p class="post">
               Celiac banh mi humblebrag gochujang vinyl. Lo-fi fashion axe raw denim, next level knausgaard single-origin coffee banh mi. Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi. Keffiyeh distillery swag, tattooed bitters chicharrones sustainable pitchfork ethical neutra master cleanse ennui roof party viral. Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
             </p>
-            <div class="meta">
-              <a class="like" style="margin-right: 5%">
-                <i class="like icon"></i> 4 Likes
-              </a>
-              <a class="like"><i class="comment icon"></i> 3 Comments</a>
-            </div>
-          </div>
-          <div class="ui left aligned very padded segment dwired-comment">
-            <h4>Comments</h4>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="column ten wide content-container segment">
-        <div class="ui segments">
-          <div class="ui left aligned very padded segment">
-            <h3 class="writing">Justin Pacquing</h3>
-            <p>
-              Celiac banh mi humblebrag gochujang vinyl. Lo-fi fashion axe raw denim, next level knausgaard single-origin coffee banh mi. Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi. Keffiyeh distillery swag, tattooed bitters chicharrones sustainable pitchfork ethical neutra master cleanse ennui roof party viral. Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
-            </p>
-            <div class="meta">
+            <div class="meta post">
               <a class="like" style="margin-right: 5%">
                 <i class="like icon"></i> 4 Likes
               </a>
@@ -184,15 +157,15 @@
         </div>
       </div>
 
-
-      <div class="column ten wide content-container segment">
+      <div class="column nine wide content-container segment">
         <div class="ui segments">
-          <div class="ui left aligned very padded segment">
-            <h3 class="writing">Chris Liang</h3>
-            <p>
+          <div class="ui left aligned padded segment">
+            <a class="ui blue ribbon label">June 6th</a>
+            <span><h3 class="writing post">Justin Pacquing</h3></span>
+            <p class="post">
               Celiac banh mi humblebrag gochujang vinyl. Lo-fi fashion axe raw denim, next level knausgaard single-origin coffee banh mi. Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi. Keffiyeh distillery swag, tattooed bitters chicharrones sustainable pitchfork ethical neutra master cleanse ennui roof party viral. Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
             </p>
-            <div class="meta">
+            <div class="meta post">
               <a class="like" style="margin-right: 5%">
                 <i class="like icon"></i> 4 Likes
               </a>
@@ -206,14 +179,37 @@
       </div>
 
 
-      <div class="column ten wide content-container segment">
+      <div class="column nine wide content-container segment">
         <div class="ui segments">
-          <div class="ui left aligned very padded segment">
-            <h3 class="writing">Jacob Hoffman</h3>
-            <p>
+          <div class="ui left aligned padded segment">
+            <a class="ui blue ribbon label">June 6th</a>
+            <span><h3 class="writing post">Chris Liang</h3></span>
+            <p class="post">
               Celiac banh mi humblebrag gochujang vinyl. Lo-fi fashion axe raw denim, next level knausgaard single-origin coffee banh mi. Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi. Keffiyeh distillery swag, tattooed bitters chicharrones sustainable pitchfork ethical neutra master cleanse ennui roof party viral. Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
             </p>
-            <div class="meta">
+            <div class="meta post">
+              <a class="like" style="margin-right: 5%">
+                <i class="like icon"></i> 4 Likes
+              </a>
+              <a class="like"><i class="comment icon"></i> 3 Comments</a>
+            </div>
+          </div>
+          <div class="ui left aligned very padded segment dwired-comment">
+            <h4>Comments</h4>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="column nine wide content-container segment">
+        <div class="ui segments">
+          <div class="ui left aligned segment">
+            <a class="ui blue ribbon label">June 4th</a>
+            <span><h3 class="writing post">Jacob Hoffman</h3></span>
+            <p class="post">
+              Celiac banh mi humblebrag gochujang vinyl. Lo-fi fashion axe raw denim, next level knausgaard single-origin coffee banh mi. Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi. Keffiyeh distillery swag, tattooed bitters chicharrones sustainable pitchfork ethical neutra master cleanse ennui roof party viral. Jean shorts ennui man bun typewriter master cleanse, narwhal pop-up. Kinfolk thundercats ethical, cronut stumptown leggings yr.
+            </p>
+            <div class="meta post">
               <a class="like" style="margin-right: 5%">
                 <i class="like icon"></i> 4 Likes
               </a>

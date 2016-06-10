@@ -18,11 +18,15 @@ body{
   font-family: Avenir-Black;
   font-size: 54px;
   color: #00AFA1;
-  line-height: 87px;
+  line-height: 70px;
 }
 
 .dwired-blue-text{
   color: #00AFA1;
+}
+
+.dwired-lightblue-text{
+  color: #7EA8BE;
 }
 
 .dwyred-menu-item{
@@ -36,11 +40,20 @@ body{
 }
 
 .content-container{
-    top: 156px;
+    top: 126px;
 }
 
 .writing{
   font-family: Avenir-Black;
+}
+
+.writing-body{
+  font-family: Helvetica;
+  font-weight: 400;
+}
+
+.heavy{
+  font-weight: 800;
 }
 
 .light{
@@ -76,4 +89,35 @@ body{
   max-width: 50%;
   margin-top: 5px !important;
   margin-bottom: 5px !important;
+}
+
+.dwired-banner{
+  width: 100%;
+  height: 90%;
+  background-color: white;
+}
+
+.vertical-center{
+  position: relative;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+}
+
+#banner-title{
+  font-size: 72pt;
+}
+
+.home-options{
+  height: 10%;
+  color: white;
+}
+
+.links{
+  color: white;
+  text-decoration: none;
+}
+
+.post{
+  padding-left: 5%;
+  padding-right: 5%;
 }

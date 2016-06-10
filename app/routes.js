@@ -1,23 +1,29 @@
 // app/routes.js
 module.exports = function(app, passport) {
-    
+
     app.get('/', function(req, res) {
         res.render('index.ejs'); //load index.ejs files
     });
-    
+
     app.get('/login', function(req, res) {
-        res.render('login.ejs'); //load index.ejs files
+        res.render('login.ejs'); //load login.ejs files
     });
-    
+
 		app.get('/dashboard', isLoggedIn, function(req, res) {
 				res.render('dashboard.ejs', {
 						user : req.user // get the user out of session and pass to template
 				});
 		});
-    
+
     //app.get('/chat', isLoggedIn, function(req, res) {
 		app.get('/chat', function(req, res) {
         res.render('messages.ejs', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
+
+    app.get('/files', function(req, res) {
+        res.render('files.ejs', {
             user : req.user // get the user out of session and pass to template
         });
     });
