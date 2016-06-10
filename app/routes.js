@@ -46,6 +46,7 @@ module.exports = function(app, passport) {
 		app.get('/chatdata',function(res,req){
 
 				var mongoose = require('mongoose');
+				var message = require('../app/msg_model.js');
 				var configDB = require('../config/database.js');
 				
 				//connect to database file (which contains db url)
@@ -57,14 +58,6 @@ module.exports = function(app, passport) {
 						console.log("Connected to DataBase");
 						//do operations which involve interacting with DB.
 				});
-				
-				var msgSchema = mongoose.Schema({
-						name: String,
-						message: String,
-						time: Number
-				});
-
-				var message = mongoose.model('message', msgSchema);
 				
 				var html_string = "";
 				// Base code for querying everything in the database
