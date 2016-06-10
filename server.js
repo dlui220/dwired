@@ -90,13 +90,13 @@ io.on('connection', function(socket){
 
  */
 		
-socket.on('chat message', function(msg){
+socket.on('chat message', function(msg, req, res){
 		if (msg.length > 0) {
 				io.emit('chat message', msg);
 						
 				//Insert into MongoDB database
 				var tmp = new message({
-						name: "Bob", //req.user.username,
+						name: res.locals.user,
 						message: msg,
 						time: 10 // will implement real time eventually
 				});

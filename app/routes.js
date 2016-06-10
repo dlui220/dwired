@@ -2,7 +2,7 @@
 module.exports = function(app, passport) {
 
     app.get('/', function(req, res) {
-        res.render('index.ejs'); //load index.ejs files
+        res.render('index.ejs');
     });
 
     app.get('/login', function(req, res) {
@@ -49,6 +49,7 @@ function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on
     if (req.isAuthenticated())
+        res.locals.user = req.user;
         return next();
 
     // if they aren't redirect them to the home page
