@@ -40,9 +40,7 @@ db.once('open', function(){
 
 //Create a schema for a message
 var msgSchema = mongoose.Schema({
-    name: String,
     message: String,
-    time: Number
 });
 
 var message = mongoose.model('message', msgSchema);
@@ -65,13 +63,13 @@ io.on('connection', function(socket){
 
 		/*
 
-		 <div class="ui right floated segment right aligned chat-bubble">
-		 <p>
-		 Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi.
-		 </p>
-		 </div>
+			<div class="ui right floated segment right aligned chat-bubble">
+			<p>
+			Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi.
+			</p>
+			</div>
 
-		 */
+		*/
 		
 		socket.on('chat message', function(msg){
 				if (msg.length > 0) {
@@ -79,9 +77,7 @@ io.on('connection', function(socket){
 						
 						//Insert into MongoDB database
 						var tmp = new message({
-								name: "Bob", //req.user.username,
 								message: msg,
-								time: 10 // will implement real time eventually
 						});
 						
 						tmp.save(function(err){
@@ -89,11 +85,11 @@ io.on('connection', function(socket){
 								console.log(tmp);
 						});
 						/*var queryMsg = function(){
-						 message.find({name : "Bob"}, "name message time", function(err, result){
-						 if ( err ) throw err;
-						 console.log("Find Operations: " + result);
-						 });
-						 };*/		
+							message.find({name : "Bob"}, "name message time", function(err, result){
+							if ( err ) throw err;
+							console.log("Find Operations: " + result);
+							});
+							};*/		
 				};
 		});
 });

@@ -37,7 +37,7 @@
 
             <!-- THIS IS THE MAIN CONTENT CONTAINER -->
             <div class="column sixteen wide ui basic segment" style="overflow-y: scroll" id="messages">
-              <!-- <div class="ui right floated right aligned segment chat-bubble"> -->
+              <!-- <div class="ui right floated right aligned segment chat-bubble'<%= user.google.name %>"> -->
               <!--   <b>Rick Melucci</b> -->
               <!--     <p class="writing-body"> -->
               <!--       Celiac banh mi humblebrag gochujang vinyl. -->
@@ -108,7 +108,7 @@
 			});
 			//var username = '<%= user.google.name %>';
 			socket.on('chat message', function(msg){
-			  $('#messages').append($('<div class="ui center floated segment center aligned chat-bubble">').text(msg));
+			  $('#messages').append($('<div class="ui segment center aligned chat-bubble">').text(msg));
   });
   </script>
   </body>
