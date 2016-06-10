@@ -61,58 +61,41 @@ var html_string = "";
 
 io.on('connection', function(socket){
 
-		// Base code for querying everything in the database
-		// Fetches previous messages and formats them into html_string
-		//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-		message.find(function (err, messages) {
-				if (err) return console.error(err);
-				// console.log(messages);
-				// console.log(messages.length);
-				for (i=0;i<messages.length;i++){
-						if (messages[i]['name'] == "Bob"){ //req.user.username ){ // checks if session matches message
-								html_string += '<div class="ui right floated segment right aligned chat-bubble">' + '<p>'+ messages[i]['name'] + " :<br>" + messages[i]['message'] + '</p>' + '</div>';
-						} else {
-								html_string += '<div class="ui right floated segment left aligned chat-bubble">' + '<p>'+ messages[i]['name'] + " :<br>" + messages[i]['message'] + '</p>' + '</div>';
-						}
-						
-						
-				}
-				// console.log(html_string);
-		});
-
-/*
-
- <div class="ui right floated segment right aligned chat-bubble">
- <p>
- Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi.
- </p>
- </div>
-
- */
 		
-socket.on('chat message', function(msg){
-		if (msg.length > 0) {
-				io.emit('chat message', msg);
+
+		/*
+
+		 <div class="ui right floated segment right aligned chat-bubble">
+		 <p>
+		 Tousled health goth chillwave, lumbersexual salvia humblebrag taxidermy whatever mustache pinterest banjo. Hella artisan sustainable pop-up, blog before they sold out ramps occupy lo-fi.
+		 </p>
+		 </div>
+
+		 */
+		
+		socket.on('chat message', function(msg){
+				if (msg.length > 0) {
+						io.emit('chat message', msg);
 						
-				//Insert into MongoDB database
-				var tmp = new message({
-						name: "Bob", //req.user.username,
-						message: msg,
-						time: 10 // will implement real time eventually
-				});
+						//Insert into MongoDB database
+						var tmp = new message({
+								name: "Bob", //req.user.username,
+								message: msg,
+								time: 10 // will implement real time eventually
+						});
 						
-				tmp.save(function(err){
-						if ( err ) throw err;
-						console.log(tmp);
-				});
-				/*var queryMsg = function(){
-				 message.find({name : "Bob"}, "name message time", function(err, result){
-				 if ( err ) throw err;
-				 console.log("Find Operations: " + result);
-				 });
-				 };*/		
-		};
-});
+						tmp.save(function(err){
+								if ( err ) throw err;
+								console.log(tmp);
+						});
+						/*var queryMsg = function(){
+						 message.find({name : "Bob"}, "name message time", function(err, result){
+						 if ( err ) throw err;
+						 console.log("Find Operations: " + result);
+						 });
+						 };*/		
+				};
+		});
 });
 
 io.on('connection', function(socket){
