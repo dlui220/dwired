@@ -85,9 +85,8 @@
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 		<script>
 
-			$.get( '/chatdata', function(data) {
-			$('#messages').html(data);
-			});
+            var m = '<%= m %>';
+			$('#messages').html(m);
 			
 			var socket = io();
 
