@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dwyred</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script type="text/javascript" src="/app/routes.js"></script>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
+  </head>
+
+<header>
+  <!------START HEADER --->
+  <div class="ui top fixed borderless menu dwired-blue" style="position: fixed; padding-left: 12.5%; padding-right: 10%">
+    <div class="item">
+      <h1 class="title">Dwyred</h1>
+    </div>
+    <%= user.google.name %>
+    <div class="right menu">
+      <a href="/dashboard" class="item dwyred-menu-item">Home</a>
+      <a href="/chat" class="item dwyred-menu-item">Messages</a>
+      <a href="/files" class="item dwyred-menu-item">Files</a>
+			<a href="/logout" class="item dwyred-menu-item">Sign-Out</a>
+    </div>
+  </div>
+  <!-------END HEADER --------->
+</header>
+ <body>
+    <!------START HEADER --->
+    <div class="ui top fixed borderless menu dwired-blue" style="position: fixed; padding-left: 12.5%; padding-right: 10%">
+      <div class="item">
+          <h1 class="title">Dwyred</h1>
+      </div>
+      <div class="right menu">
+        <a href="/dashboard" class="item dwyred-menu-item">Home</a>
+        <a href="/chat" class="item dwyred-menu-item">Messages</a>
+        <a href="/files" class="item dwyred-menu-item">Files</a>
+				<a href="/logout" class="item dwyred-menu-item">Sign-Out</a>
+      </div>
+    </div>
+    <!-------END HEADER --------->
+
+    <!-- MAIN CONTENT HERE ----->
+	  <div class="ui one column stackable center aligned page grid main-container" style="padding: 0">
+      <div class="column nine wide content-container segment">
+
+				<div class="ui form">
+					<div class="field">
+						<form action="" id="poster">
+							<textarea placeholder="Write Post Here..." form="poster" autocomplete="off" id="m"></textarea>
+							<br> <br>
+							<button class="ui button" type="submit">Submit</button>
+						</form>
+					</div>
+				</div>
+        <!---The "segments" container holds individual segments-->
+        <div class="ui segments">
+				</div>
+			</div>
+		 </div>
+
+		<script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/app/styles.js"></script>
+		<script>
+			var socket = io();
+			console.log("hello");
+			
+			$('form').submit(function(){
+			  console.log($('#m').val());
+			  socket.emit('posts', '<%= user.google.name %>'  + ' : ' + $('#m').val());
+			  $('#m').val('');
+			  return false;
+			});
+			//var username = '<%= user.google.name %>';
+			socket.on('posts', function(msg){
+			  console.log("worked?");
+			});
+		</script>
+  </body>
+ 
+</html>

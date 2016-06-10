@@ -45,6 +45,14 @@ var msgSchema = mongoose.Schema({
 
 var message = mongoose.model('message', msgSchema);
 
+//Create a schema for a post
+var postSchema = mongoose.Schema({
+    post: String,
+});
+
+var posts = mongoose.model('post', postSchema);
+
+
 // required for passport
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());
@@ -101,6 +109,24 @@ io.on('connection', function(socket){
 		});
 });
 
+io.on('connection', function(socket){
+		socket.on('posts', function(pst){
+				if (pst.length > 0 ){
+						io.emit('posts', pst);
+
+						//Insert into MongoDB database
+						var tmp = new posts({
+								post: pst,
+						});
+						
+						tmp.save(function(err){
+								if ( err ) throw err;
+								console.log(tmp);
+								
+						});
+				};
+		});
+});
 ///// launch
 http.listen(8000, function(){
  		console.log('listening on *:8000');

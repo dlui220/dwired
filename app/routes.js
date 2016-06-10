@@ -4,6 +4,7 @@ module.exports = function(app, passport) {
 
     var mongoose = require('mongoose');
     var message = require('../app/msg_model.js');
+		var posts = require('../app/post_model.js');
     var configDB = require('../config/database.js');
 
     //connect to database file (which contains db url)
