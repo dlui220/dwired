@@ -44,6 +44,28 @@ module.exports = function(app, passport) {
             }));
 
 		app.get('/chatdata',function(res,req){
+
+				var mongoose = require('mongoose');
+				var configDB = require('./config/database.js');
+				
+				//connect to database file (which contains db url)
+				mongoose.connect(configDB.url);
+				var db = mongoose.connection;
+				
+				db.on('error', console.error.bind(console, 'connection error:'));
+				db.once('open', function(){
+						console.log("Connected to DataBase");
+						//do operations which involve interacting with DB.
+				});
+				
+				var msgSchema = mongoose.Schema({
+						name: String,
+						message: String,
+						time: Number
+				});
+
+				var message = mongoose.model('message', msgSchema);
+				
 				var html_string = "";
 				// Base code for querying everything in the database
 				// Fetches previous messages and formats them into html_string
