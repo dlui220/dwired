@@ -15,7 +15,7 @@ body{
 
 /* Dwyred Copy: */
 .title{
-  font-family: Avenir-Black;
+  font-family: 'Nunito', sans-serif;
   font-size: 54px;
   color: #00AFA1;
   line-height: 70px;
@@ -32,7 +32,7 @@ body{
 .dwyred-menu-item{
     font-size: 18px;
     color: #00AFA1;
-    font-family: Avenir-Black;
+    font-family: 'Nunito', sans-serif;
 }
 
 .main-container{
@@ -44,7 +44,7 @@ body{
 }
 
 .writing{
-  font-family: Avenir-Black;
+  font-family: 'Nunito', sans-serif;
 }
 
 .writing-body{
