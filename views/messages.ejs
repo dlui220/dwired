@@ -107,7 +107,7 @@
 			  $('#m').val('');
 			  return false;
 			});
-			var username = <%= user.google.name %>;
+			var username = '<%= user.google.name %>';
 			socket.on('chat message', function(msg){
 			  $('#messages').append($('<div class="ui right floated segment right aligned chat-bubble">').text(username + " : " + msg));
   });
