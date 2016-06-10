@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
 		app.get('/chatdata',function(res,req){
 
 				var mongoose = require('mongoose');
-				var configDB = require('./config/database.js');
+				var configDB = require('../config/database.js');
 				
 				//connect to database file (which contains db url)
 				mongoose.connect(configDB.url);
