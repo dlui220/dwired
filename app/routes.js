@@ -69,6 +69,7 @@ module.exports = function(app, passport) {
             }
             // console.log(messages);
             // console.log("req.user.google.name: "+req.user.google.name);
+						html_string="";
 						for (i=0;i<messages.length;i++){
 								console.log(messages[i]['name']);
 								if (messages[i]['name'] == (req.user.google.name+" ")){ // checks if session matches message
@@ -77,9 +78,9 @@ module.exports = function(app, passport) {
 								} else {
 										html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['name'] + " : "  + messages[i]['message'] + '</p>' + '</div>';
 								}
-									 }
-						});
-										 res.render('messages.ejs', {
+						}
+				});
+				res.render('messages.ejs', {
 						user : req.user, // get the user out of session and pass to template
 						m : html_string
 				});
