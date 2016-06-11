@@ -41,6 +41,7 @@ db.once('open', function(){
 //Create a schema for a message
 var msgSchema = mongoose.Schema({
     message: String,
+		name: String
 });
 
 var message = mongoose.model('message', msgSchema);
