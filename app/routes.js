@@ -22,10 +22,10 @@ module.exports = function(app, passport) {
     // Base code for querying everything in the database
     // Fetches previous messages and formats them into html_string
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-		
+
 
     app.get('/', function(req, res) {
-				res.render('index.ejs');
+				res.render('intro.ejs');
 		});
 
 		app.get('/login', function(req, res) {
@@ -53,7 +53,7 @@ module.exports = function(app, passport) {
 				p : pst_string
 		});
 });
-		
+
 app.get('/chat', isLoggedIn, function(req, res) {
 		//html_string = "";
 		message.find(function (err, messages) {
