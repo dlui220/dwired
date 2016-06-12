@@ -41,6 +41,7 @@ db.once('open', function(){
 //Create a schema for a message
 var msgSchema = mongoose.Schema({
     message: String,
+		name: String
 });
 
 var message = mongoose.model('message', msgSchema);
@@ -82,10 +83,12 @@ io.on('connection', function(socket){
 		socket.on('chat message', function(msg){
 				if (msg.length > 0) {
 						io.emit('chat message', msg);
-						
+						var namestring = msg.split(":")[0];
+						var msgstring = msg.split(":")[1];
 						//Insert into MongoDB database
 						var tmp = new message({
-								message: msg,
+								name: namestring,
+								message: msgstring
 						});
 						
 						tmp.save(function(err){
@@ -93,11 +96,11 @@ io.on('connection', function(socket){
 								console.log(tmp);
 						});
 						/*var queryMsg = function(){
-							message.find({name : "Bob"}, "name message time", function(err, result){
-							if ( err ) throw err;
-							console.log("Find Operations: " + result);
-							});
-							};*/		
+						 message.find({name : "Bob"}, "name message time", function(err, result){
+						 if ( err ) throw err;
+						 console.log("Find Operations: " + result);
+						 });
+						 };*/		
 				};
 		});
 });
