@@ -4,30 +4,62 @@
     <meta charset="utf-8">
     <title>Dwyred</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
     <script src="semantic/dist/semantic.min.js"></script>
-    <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="/app/routes.js"></script>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
 
   <body>
-    <div class="ui middle aligned center aligned grid main-container">
-      <div class="ui two column left aligned stacked segment dwired-form">
-        <!--<div class="ui top attached label" style="height: 100px"><h1 class="title" style="font-size: 42px">Dwyred</h1></div>-->
-        <div class="row">
-          <div class="column" style="width: 50%">
-              <div class="ui left icon input">
-                  <input type="text" placeholder="Username">
-                  <i class="users icon"></i>
-              </div>
+    <div class="ui grid dwired-banner" style="margin: 0">
+      <div class="vertical-center">
+        <center>
+            <div class="row centered" style="margin-bottom: 15px">
+              <h1 id="banner-title" class="title">Dwyred</h1>
+            </div>
+        </center>
+        <center>
+          <div class="row centered">
+            <h2 class="writing">Making teacher and student communication how it should be:</h2>
           </div>
+        </center>
+        <center>
+          <div class="row centered dwired-lightblue-text">
+            <h1>Seamless</h1>
+          </div>
+        </center>
+      </div>
+    </div>
 
-        <div class="ui vertical divider"> or </div>
-
-        <div class="column" style="width: 50%">
-          Hello
+    <div class="ui center aligned grid home-options">
+      <div class="three column row">
+        <div class="column">
+          <a href="auth/google" class="links">
+            <div class="ui link item">
+              <h1>About us</h1>
+            </div>
+          </a>
         </div>
+
+        <div class="column">
+          <a href="auth/google" class="links">
+            <div class="ui link item">
+              <h1>Log in</h1>
+            </div>
+          </a>
+        </div>
+
+
+        <div class="column">
+          <a href="auth/google" class="links">
+            <div class="ui link item">
+              <h1>Sign up</h1>
+            </div>
+          </a>
+        </div>
+
       </div>
-      </div>
-      </div>
+    </div>
+
   </body>
-</html>
