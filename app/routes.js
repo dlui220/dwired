@@ -48,7 +48,7 @@ module.exports = function(app, passport) {
             // console.log(messages.length);
             pst_string = "";
             for (i=0;i<psts.length;i++){
-                pst_string += '<div class="ui left aligned segment"><a class="ui blue ribbon label">Class Post</a><span></span><!--<h3 class="writing">Rick Melucci</h3>--><p class="post">' + psts[i]['post'] + '</p></div><br><br><br>';
+                pst_string += '<div class="column nine wide content-container segment"><div class="ui segments"><div class="ui left aligned segment"><a class="ui blue ribbon label">Class Post</a><span></span><!--<h3 class="writing">Rick Melucci</h3>--><p class="post">' + psts[i]['post'] + '</p></div></div></div><br><br><br>';
                 /*'<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ psts[i]['post'] + '</p>' + '</div>';*/
                 //console.log("hey");
                 //console.log(pst_string);
