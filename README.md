@@ -13,12 +13,9 @@ dwyred.mooo.com
 3. Go into the 'dwired' directory and run ```$ npm install```
 4. Make sure all dependencies are installed.
 5. In the same directory, run commands:
-
 ``` $ pm2 start mongod -- --dbpath ./data --smallfiles``` 
-
 ``` $ pm2 start server.js```
-
 6. (Optional, but recommended) Run command ```$ pm2 startup ubuntu``` to create a start-up script for the app, following succeeding prompts after command is given.
-* Note: There may be an issue with the 'bcrypt' dependency, which means you will have to ```$ npm install bcrypt``` in order to fix.
+Note: There may be an issue with the 'bcrypt' dependency, which means you will have to ```$ npm install bcrypt``` in order to fix.
 
 
