@@ -2,10 +2,8 @@
 Student / teacher communication platform for Ms. Dwyer.
 msdwyerstuy@gmail.com
 
-Javascript instant messsaging tutorial!
-https://www.youtube.com/watch?v=lW1vsKMUaKg
-Google Auth tutorial
-https://scotch.io/tutorials/easy-node-authentication-google
+Hosted on: 
+dwyred.mooo.com
 
 -------
 
@@ -14,7 +12,13 @@ https://scotch.io/tutorials/easy-node-authentication-google
 2. Clone repositiory: https://github.com/dlui220/dwired.git
 3. Go into the 'dwired' directory and run ```$ npm install```
 4. Make sure all dependencies are installed.
-5. In the same directory, run command ``` $ pm2 start mongod server.js```
+5. In the same directory, run commands:
+
+``` $ pm2 start mongod -- --dbpath ./data --smallfiles``` 
+
+``` $ pm2 start server.js```
+
 6. (Optional, but recommended) Run command ```$ pm2 startup ubuntu``` to create a start-up script for the app, following succeeding prompts after command is given.
+* Note: There may be an issue with the 'bcrypt' dependency, which means you will have to ```$ npm install bcrypt``` in order to fix.
 
 
