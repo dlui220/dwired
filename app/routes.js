@@ -81,10 +81,34 @@ module.exports = function(app, passport) {
 				});
 				res.render('messages.ejs', {
 						user : req.user, // get the user out of session and pass to template
+				p : pst_string
+		});
+});
+
+app.get('/chat', isLoggedIn, function(req, res) {
+		//html_string = "";
+		message.find(function (err, messages) {
+				if (err) {
+						return console.error(err);
+				}
+				// console.log(messages);
+				// console.log(messages.length);
+				for (i=0;i<messages.length;i++){
+						if (messages[i]['name'] == "Bob"){ //req.user.username ){ // checks if session matches message
+								html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['message'] + '</p>' + '</div>';
+						} else {
+								html_string += '<div class="ui left floated segment center aligned chat-bubble">' + '<p>'+ messages[i]['message'] + '</p>' + '</div>';
+						}
+				}
+		});
+		res.render('messages.ejs', {
+				user : req.user, // get the user out of session and pass to template
+				m : html_string
+		});
+});
 						m : html_string
 				});
     });
-
     app.get('/files', function(req, res) {
         res.render('files.ejs', {
             user : req.user // get the user out of session and pass to template
