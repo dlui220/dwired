@@ -26,13 +26,11 @@ module.exports = function(app, passport) {
 
     app.get('/', isLoggedIn, function(req, res) {
             res.render('index.ejs', {
-                user : req.user
+                user : req.user,
+                email : req.user.email
                 
             });
-            //if( req.session.user.email.split("@")[1] = "stuy.edu")//"schools.nyc.edu")
-            	//			console.log(req.session.user.email);
-		//			$('#dashboard').html("\"<a href=\"/dashboard\" class=\"item dwyred-menu-item\">Dashboard</a>");
-        
+           
         
     });
 

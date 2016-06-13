@@ -22,6 +22,11 @@
         <a href="/files" class="item dwyred-menu-item">Files</a>
 				<a href="/logout" class="item dwyred-menu-item">Sign Out</a>
 				<div id='dashboard'></div>
+			<script>
+	    var email = `<%- email %>`;
+            if( email.split("@")[1] = "schools.nyc.edu"){//"stuy.edu")
+            	$('#dashboard').html("\"<a href=\"/dashboard\" class=\"item dwyred-menu-item\">Dashboard</a>");}
+		</script>        
 		
       </div>
     </div>
