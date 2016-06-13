@@ -1,7 +1,7 @@
 
 // app/routes.js
 module.exports = function(app, passport) {
-
+	
     var mongoose = require('mongoose');
     var message = require('../app/msg_model.js');
     var posts = require('../app/post_model.js');
@@ -24,17 +24,14 @@ module.exports = function(app, passport) {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
-    app.get('/', function(req, res) {
-		res.render('intro.ejs');
-	});
-        if (logged) {
+    app.get('/', isLoggedIn, function(req, res) {
             res.render('index.ejs', {
-                user : req.user
+                user : req.user,
+                email : req.user.email
+                
             });
-        }
-        else {
-            res.render('intro.ejs');
-        }
+           
+        
     });
 
     app.get('/login', function(req, res) {
@@ -129,8 +126,8 @@ app.get('/chat', isLoggedIn, function(req, res) {
     // the callback after google has authenticated the user
     app.get('/auth/google/callback',
             passport.authenticate('google', {
-                successRedirect : '/dashboard',
-                failureRedirect : '/'
+                successRedirect : '/',
+                failureRedirect : '/login'
             }));
 };
 // route middleware to make sure a user is logged in
@@ -140,7 +137,7 @@ function isLoggedIn(req, res, next) {
         return next();
 
     // if they aren't redirect them to the home page
-    res.redirect('/');
+    res.redirect('/login');
 }
 function logged(req, res) {
     if (req.isAuthenticated()){
