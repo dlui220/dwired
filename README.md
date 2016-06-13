@@ -16,6 +16,7 @@ dwyred.mooo.com
 ``` $ pm2 start mongod -- --dbpath ./data --smallfiles``` 
 ``` $ pm2 start server.js```
 6. (Optional, but recommended) Run command ```$ pm2 startup ubuntu``` to create a start-up script for the app, following succeeding prompts after command is given.
+
 Note: There may be an issue with the 'bcrypt' dependency, which means you will have to ```$ npm install bcrypt``` in order to fix.
 
 
