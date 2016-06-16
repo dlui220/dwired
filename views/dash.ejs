@@ -42,33 +42,31 @@
     <!-------END HEADER --------->
 
     <!-- MAIN CONTENT HERE ----->
-	  <div class="ui one column stackable center aligned page grid main-container" style="padding: 0" id="p">
+	  <div class="ui one column stackable center aligned page grid main-container" style="padding: 0">
 
       <div class="column nine wide content-container segment">
-	
-				<div class="ui form">
-					<div class="field">
-						<form action="" id="poster">
-							<textarea placeholder="Write Post Here..." rows="2" form="poster" autocomplete="off" id="m"></textarea>
-							<br> <br>
-							<button class="ui button" type="submit">Submit</button>
-						</form>
-					</div>
-				</div>
+    				<div class="ui form segment">
+    					<div class="field">
+    						<form action="" id="poster">
+    							<textarea placeholder="Write Post Here..." rows="2" form="poster" autocomplete="off" id="m"></textarea>
+    							<br> <br>
+    							<button class="ui button" type="submit">Submit</button>
+    						</form>
+    					</div>
+    				</div>
         <!---The "segments" container holds individual segments-->
-        <div class="ui segments" id="p" 
+        <div id="p">
 				</div>
 			</div>
 		 </div>
 <!-- hi-->
 		<script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="/app/styles.js"></script>
 		<script>
 			var p = `<%- p %>`;
 			$("#p").html(p);
 			var socket = io();
 			console.log("hello");
-			
+
 			$('form').submit(function(){
 			  console.log($('#m').val());
 			  socket.emit('posts', '<%= user.google.name %>'  + ' : ' + $('#m').val());
@@ -81,5 +79,5 @@
 			});
 		</script>
   </body>
- 
+
 </html>
